@@ -10,14 +10,18 @@
 
         //check button function
         $scope.btnShow = function() {
-            if ($scope.InputField == "") {
+
+            function RemoveEmpty(item) { //filter function
+                return (item !== "");
+            }
+            var StringArray = $scope.InputField.split(",").filter(RemoveEmpty); //implement filter to remove empty item
+
+
+            if (StringArray.length == 0) {
                 $scope.ErrorMsg = "Please enter data first";
                 $scope.Feedback = "";
             } else {
-                function RemoveEmpty(item) { //filter function
-                    return (item !== "");
-                }
-                var StringArray = $scope.InputField.split(",").filter(RemoveEmpty); //implement filter to remove empty item
+                console.log(StringArray.length);
                 if (StringArray.length <= 3) {
                     $scope.Feedback = "Enjoy!";
                     $scope.ErrorMsg = "";
