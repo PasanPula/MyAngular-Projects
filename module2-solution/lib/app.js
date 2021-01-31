@@ -15,27 +15,16 @@
         this.ShoppingList = ShoppingListCheckOffService.getShoppingList();
         this.checkShoppingList = function(index) {
             ShoppingListCheckOffService.checkShoppingList(index);
-            if (this.ShoppingList == "") {
-                this.errorMessage = true;
-
-            }
-        }
+        };
     };
 
 
     AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 
     function AlreadyBoughtController(ShoppingListCheckOffService) {
-        this.BoughtList = function() {
-            if (ShoppingListCheckOffService.getBoughtList().length == 0) {
-                this.errorMessage = false;
-            } else {
-                this.errorMessage = true;
-                return ShoppingListCheckOffService.getBoughtList();
 
-            }
+        this.BoughtList = ShoppingListCheckOffService.getBoughtList();
 
-        }
     };
 
 
