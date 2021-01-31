@@ -5,8 +5,14 @@
 
     function ControlFunc($scope) {
         $scope.InputField = "";
-        $scope.ErrorMsg = "";
-        $scope.Feedback = "";
+
+        //Old Code bindings
+        // $scope.ErrorMsg = "";
+        //  $scope.Feedback = "";
+
+        //nnew code bindings
+        $scope.checked = false;
+        $scope.message = "";
 
         //check button function
         $scope.btnShow = function() {
@@ -18,16 +24,36 @@
 
 
             if (StringArray.length == 0) {
-                $scope.ErrorMsg = "Please enter data first";
-                $scope.Feedback = "";
+
+                // Old Code 
+                // $scope.ErrorMsg = "Please enter data first";
+                // $scope.Feedback = "";
+
+                //new Code bindings
+                $scope.empty = true;
+
             } else {
-                console.log(StringArray.length);
+                //new code
+                $scope.checked = true;
+                $scope.empty = false;
+
+
                 if (StringArray.length <= 3) {
-                    $scope.Feedback = "Enjoy!";
-                    $scope.ErrorMsg = "";
+                    // old code
+                    // $scope.Feedback = "Enjoy!";
+                    // $scope.ErrorMsg = "";
+
+                    //New code
+                    $scope.message = "Enjoy !"
+
                 } else {
-                    $scope.Feedback = "Too Much!";
-                    $scope.ErrorMsg = "";
+
+                    // old code
+                    // $scope.Feedback = "Too Much!";
+                    // $scope.ErrorMsg = "";
+
+                    //New code
+                    $scope.message = "TooMuch !"
                 }
             }
         }
