@@ -35,6 +35,7 @@
 
 
         controller.SearchTermFunc = function() {
+            controller.found = '';
 
             if (this.SearchTerm != "") {
                 controller.load = true;
@@ -54,7 +55,6 @@
                     .catch(function(error) {
                         controller.error = true;
                         controller.load = false;
-
                     });
 
             } else {
