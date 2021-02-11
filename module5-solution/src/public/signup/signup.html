@@ -1,0 +1,83 @@
+<div id="regform" class="container">
+    <h1 style="padding-bottom:25px; ">Sign up For Our Newsletter</h1>
+    <form name='regForm' novalidate>
+
+        <label class="label">Firstname:</label>
+        <span class="errormsg" ng-if="(regForm.Firstname.$error.minlength || regForm.Firstname.$error.required) && regForm.Firstname.$touched">
+            *Firstname must be at least 2 characters long
+          </span>
+        <span class="errormsg" ng-if="regForm.Firstname.$error.maxlength && regForm.Firstname.$touched">
+            *Firstname must not be longer than 10 characters
+          </span>
+        <input type="text" class="form-control" name="Firstname" placeholder="Type your firstname" ng-model="signupCtrl.fname" required minlength="2" ng-maxlength="10">
+        <br>
+
+        <label class="label">Lastname:</label>
+        <span class="errormsg" ng-if="(regForm.Lastname.$error.minlength || regForm.Lastname.$error.required) && regForm.Lastname.$touched">
+            *Lastname must be at least 2 characters long
+          </span>
+        <span class="errormsg" ng-if="regForm.Lastname.$error.maxlength && regForm.Lastname.$touched">
+              *Lastname must not be longer than 10 characters
+          </span>
+        <input type="text" class="form-control" name="Lastname" placeholder="Type your Lastname" ng-model="signupCtrl.lname" required minlength="2" ng-maxlength="10">
+        <br>
+        <label class="label">Email:</label>
+        <span class="errormsg" ng-if="regForm.email.$invalid && regForm.email.$touched">
+            *Must be a valid email address: handle@domain format
+          </span>
+        <input type="email" class="form-control" name="email" placeholder="Email" ng-model="signupCtrl.email" required>
+
+        <br>
+
+        <label class="label">Contact No:</label>
+        <span class="errormsg" ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+           
+          *Phone must be in the format ###-###-####.
+        </span>
+        <input type="text" class="form-control" name="phone" placeholder="Phone ###-###-####" ng-model="signupCtrl.phone" required pattern="(\d{3})-(\d{3})-(\d{4})">
+
+        <br>
+
+        <label class="label">Number of Favourite Menu: </label>
+        <span class="errormsg" ng-if="(regForm.MenuItem.$error.minlength || regForm.MenuItem.$error.required) && regForm.MenuItem.$touched">
+            *Menu Number must be at least 1 characters long
+          </span>
+        <span class="errormsg" ng-if="regForm.MenuItem.$error.menuExist">
+          *No such menu number exists
+              </span>
+        <span class="errormsg" ng-if="regForm.MenuItem.$error.maxlength && regForm.MenuItem.$touched">
+          *Menu Number must not be longer than 2 characters
+          </span>
+        <span class="errormsg" ng-if="regForm.$pending">
+           Please Wait...
+            </span>
+        <input type="text" class="form-control" name="MenuItem" placeholder=" menu number of your favorite dish" ng-model="signupCtrl.fdish" ng-model-options="{ debounce: 1000 }" required menu-exist minlength="2" ng-maxlength="4">
+
+        <br>
+        <div ng-if="!signupCtrl.sucess">
+            <button data-toggle="modal" class="btn btn-primary" data-target="#exampleModalCenter" ng-disabled="regForm.$invalid || regForm.$pending" ng-click="signupCtrl.submit()">Submit</button>
+        </div>
+        <br>
+
+
+
+    </form>
+
+
+</div>
+
+<div style="color: black;" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="font-weight: 800; color:green;" class="modal-title" id="exampleModalLongTitle">Sucess</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Your information has been saved</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

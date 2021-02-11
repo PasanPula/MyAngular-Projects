@@ -1,0 +1,33 @@
+input {
+    font-size: 20px;
+    color: black;
+}
+
+button {
+    font-size: 15px;
+}
+
+.ng-touched.ng-valid {
+    border: 3px rgb(3, 255, 3) solid;
+}
+
+.ng-touched.ng-invalid {
+    border: 3px rgb(255, 0, 0) solid;
+}
+
+#info {
+    margin-top: 20px;
+}
+
+.errormsg {
+    color: rgb(255, 0, 0);
+    font-size: 12px;
+}
+
+.btn {
+    width: 100%;
+}
+
+.label {
+    font-size: 16px;
+}

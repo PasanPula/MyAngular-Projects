@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h1>Account information</h1>
+    <div> <strong>FirstName:</strong> {{ $ctrl.regdata[0].Firstname }} <br> <br> <strong>Lastname:</strong>{{ $ctrl.regdata[0].Lastname }} <br> <br><strong>Email:</strong> {{ $ctrl.regdata[0].Email }}<br><br><strong> Contact No:</strong> {{ $ctrl.regdata[0].Phone}}
+        <br><br> <strong>Favorite Menu :</strong>{{$ctrl.catdata.name}} <br><br>{{$ctrl.catdata.description}}</div>
+
+    <div style="margin-top:10px" class="menu-item-tile col-md-6">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="menu-item-photo">
+                    <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.Path}}/images/{{$ctrl.catdata.short_name}}.jpg" alt="{{$ctrl.catdata.name}}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
